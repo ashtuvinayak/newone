@@ -1,0 +1,120 @@
+{
+  "title": "Milkano B2B API Documentation",
+  "description": "API documentation for the Milkano B2B application.",
+  "version": "1.0.0",
+  "base_url": "https://api.milakno.com",
+  "endpoints": [
+    {
+      "name": "Get Products",
+      "method": "GET",
+      "url": "/products",
+      "description": "Returns a list of products available for purchase on the platform.",
+      "parameters": [
+        {
+          "name": "category",
+          "type": "string",
+          "description": "Filter products by category.",
+          "required": false
+        },
+        {
+          "name": "price_range",
+          "type": "string",
+          "description": "Filter products by price range.",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "Get Product",
+      "method": "GET",
+      "url": "/products/{product_id}",
+      "description": "Returns details about a specific product identified by the product ID.",
+      "parameters": [
+        {
+          "name": "product_id",
+          "type": "integer",
+          "description": "The ID of the product to retrieve.",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "Add Product to Cart",
+      "method": "POST",
+      "url": "/cart",
+      "description": "Adds a product to the cart.",
+      "parameters": [
+        {
+          "name": "product_id",
+          "type": "integer",
+          "description": "The ID of the product to add to the cart.",
+          "required": true
+        },
+        {
+          "name": "quantity",
+          "type": "integer",
+          "description": "The quantity of the product to add to the cart.",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "Get Cart",
+      "method": "GET",
+      "url": "/cart",
+      "description": "Returns the contents of the current cart."
+    },
+    {
+      "name": "Remove Product from Cart",
+      "method": "DELETE",
+      "url": "/cart/{product_id}",
+      "description": "Removes a product from the cart.",
+      "parameters": [
+        {
+          "name": "product_id",
+          "type": "integer",
+          "description": "The ID of the product to remove from the cart.",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "Place Order",
+      "method": "POST",
+      "url": "/checkout",
+      "description": "Places an order.",
+      "parameters": [
+        {
+          "name": "shipping_address",
+          "type": "string",
+          "description": "The shipping address for the order.",
+          "required": true
+        },
+        {
+          "name": "payment_details",
+          "type": "object",
+          "description": "The payment details for the order.",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "Get Orders",
+      "method": "GET",
+      "url": "/orders",
+      "description": "Returns a list of orders placed on the platform.",
+      "parameters": [
+        {
+          "name": "status",
+          "type": "string",
+          "description": "Filter orders by status.",
+          "required": false
+        },
+        {
+          "name": "date_range",
+          "type": "string"
+        }
+        ]
+    }
+]
+}
